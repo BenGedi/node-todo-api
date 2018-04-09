@@ -10,7 +10,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   console.log('Connected to MongoDB server');
 
   // create Todos collection
-  // db.collection('Tobos').insertOne({
+  // db.collection('Todos').insertOne({
   //   text: 'Something to do',
   //   complete: false
   // }, (err, result) => {
@@ -22,9 +22,10 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   // });
 
   db.collection('Users').insertOne({
-    name: 'Ben Gedi',
-    age: 33,
-    location: 'Moshe Sharet 65, Hod Hasharon Israel'
+    name: 'Jen',
+    age: 25,
+    location: 'Moshe Sharet 65, Hod Hasharon Israel',
+    _id: new ObjectID('5ac4ce98a6be3e95b4f8e86b')
   }, (err, result) => {
     if (err) {
       return console.log('Unable to insert todo', err);
@@ -32,7 +33,6 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 
     console.log(JSON.stringify(result.ops, undefined, 2));
   });
-
 
   db.close();
 });
